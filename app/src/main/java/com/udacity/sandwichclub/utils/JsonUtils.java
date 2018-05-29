@@ -1,6 +1,5 @@
 package com.udacity.sandwichclub.utils;
 
-import android.util.JsonReader;
 import android.util.Log;
 
 import com.udacity.sandwichclub.model.Sandwich;
@@ -14,11 +13,8 @@ import java.util.List;
 
 public class JsonUtils {
 
-    private static final String TAG = "JsonUtils";
-
     public static Sandwich parseSandwichJson(String json) {
         Sandwich sandwich = null;
-        Log.d(TAG, json);
         try {
             JSONObject jsonObject = new JSONObject(json);
 
@@ -45,7 +41,7 @@ public class JsonUtils {
 
             List<String> ingredients = new ArrayList<String>();
             JSONArray ingredientArray = jsonObject.getJSONArray("ingredients");
-            for (int i = 0; i < alsoKnownAsArray.length(); i++){
+            for (int i = 0; i < ingredientArray.length(); i++){
                 ingredients.add(ingredientArray.getString(i));
             }
 

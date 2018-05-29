@@ -2,8 +2,14 @@ package com.udacity.sandwichclub;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
@@ -48,7 +54,16 @@ public class DetailActivity extends AppCompatActivity {
                 .load(sandwich.getImage())
                 .into(ingredientsIv);
 
-        setTitle(sandwich.getMainName());
+        TextView sandwichNameTextView = findViewById(R.id.sandwich_name_tv);
+        sandwichNameTextView.setText(sandwich.getMainName());
+
+        Button backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavUtils.navigateUpFromSameTask(DetailActivity.this);
+            }
+        });
     }
 
     private void closeOnError() {
@@ -58,5 +73,28 @@ public class DetailActivity extends AppCompatActivity {
 
     private void populateUI(Sandwich sandwich) {
 
+        TextView alsoKnownAsTV = findViewById(R.id.also_known_tv);
+        if (sandwich.getAlsoKnownAs() == null) {
+            alsoKnownAsTV.setVisibility(View.GONE);
+            findViewById(R.id.also_known_title).setVisibility(View.GONE);
+        } else {
+            String alsoKnownAsText = sandwich.getAlsoKnownAs().toString();
+            alsoKnownAsTV.setText(alsoKnownAsText.substring(1, alsoKnownAsText.length()-1));
+        }
+
+        TextView descriptionTV = findViewById(R.id.description_tv);
+        descriptionTV.setText(sandwich.getDescription());
+
+        TextView originTV = findViewById(R.id.origin_tv);
+        if (sandwich.getPlaceOfOrigin().equals("")){
+            originTV.setVisibility(View.GONE);
+            findViewById(R.id.origin_title).setVisibility(View.GONE);
+        } else {
+            originTV.setText(sandwich.getPlaceOfOrigin());
+        }
+
+        TextView ingredientsTV = findViewById(R.id.ingredients_tv);
+        String ingredientText = sandwich.getIngredients().toString();
+        ingredientsTV.setText(ingredientText.substring(1, ingredientText.length()-1));
     }
 }

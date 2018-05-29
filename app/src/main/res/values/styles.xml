@@ -1,11 +1,64 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="TitleStyle">
+        <item name="android:textSize">@dimen/title_text_size</item>
+        <item name="android:textColor">@color/TitleTextColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="MessageStyle">
+        <item name="android:textSize">@dimen/heading_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/HeadingTextColor</item>
+        <item name="android:layout_marginLeft">@dimen/detail_activity_side_margin</item>
+        <item name="android:layout_marginRight">@dimen/detail_activity_side_margin</item>
+        <item name="android:layout_marginTop">@dimen/heading_top_margin</item>
+        <item name="android:layout_marginBottom">@dimen/heading_bottom_margin</item>
+    </style>
+
+    <style name="AppNameTitle">
+        <item name="android:textSize">@dimen/name_title_text_size</item>
+        <item name="android:textColor">@color/TitleTextColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <style name="HeadingStyle">
+        <item name="android:textSize">@dimen/heading_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/HeadingTextColor</item>
+        <item name="android:layout_marginLeft">@dimen/list_item_margin</item>
+        <item name="android:layout_marginRight">@dimen/list_item_margin</item>
+        <item name="android:layout_marginTop">@dimen/heading_top_margin</item>
+        <item name="android:layout_marginBottom">@dimen/heading_bottom_margin</item>
+    </style>
+
+    <style name="DataStyle">
+        <item name="android:textSize">@dimen/data_text_size</item>
+        <item name="android:textColor">@color/DataTextColor</item>
+        <item name="android:layout_marginLeft">@dimen/detail_activity_side_margin</item>
+        <item name="android:layout_marginRight">@dimen/detail_activity_side_margin</item>
+        <item name="android:layout_marginBottom">@dimen/data_bottom_margin</item>
+    </style>
+
+    <style name="ListItemStyle">
+        <item name="android:textSize">@dimen/list_item_text_size</item>
+        <item name="android:textColor">@color/DataTextColor</item>
+        <item name="android:layout_margin">@dimen/list_item_margin</item>
     </style>
 
 </resources>
