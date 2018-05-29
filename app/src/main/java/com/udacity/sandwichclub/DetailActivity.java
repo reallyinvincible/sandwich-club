@@ -72,9 +72,10 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void populateUI(Sandwich sandwich) {
-
+        //Adding information to the Detail UI
         TextView alsoKnownAsTV = findViewById(R.id.also_known_tv);
         if (sandwich.getAlsoKnownAs() == null) {
+            //If sandwich doesn't have an alternate name, hide the "Also Known As" view
             alsoKnownAsTV.setVisibility(View.GONE);
             findViewById(R.id.also_known_title).setVisibility(View.GONE);
         } else {
@@ -87,6 +88,7 @@ public class DetailActivity extends AppCompatActivity {
 
         TextView originTV = findViewById(R.id.origin_tv);
         if (sandwich.getPlaceOfOrigin().equals("")){
+            //If sandwich doesn't have an origin, hide the "Origin" view
             originTV.setVisibility(View.GONE);
             findViewById(R.id.origin_title).setVisibility(View.GONE);
         } else {

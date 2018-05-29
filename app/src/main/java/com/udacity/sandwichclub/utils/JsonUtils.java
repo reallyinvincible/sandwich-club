@@ -16,6 +16,7 @@ public class JsonUtils {
     public static Sandwich parseSandwichJson(String json) {
         Sandwich sandwich = null;
         try {
+            //Fetching data from JSON
             JSONObject jsonObject = new JSONObject(json);
 
             JSONObject name = jsonObject.getJSONObject("name");
@@ -44,7 +45,7 @@ public class JsonUtils {
             for (int i = 0; i < ingredientArray.length(); i++){
                 ingredients.add(ingredientArray.getString(i));
             }
-
+            //Creating a sandwich object with obtained data
             sandwich = new Sandwich(mainName, alsoKnownAs, placeOfOrigin, description, image, ingredients);
 
         } catch (JSONException e) {
